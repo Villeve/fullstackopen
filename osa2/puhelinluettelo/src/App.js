@@ -20,6 +20,13 @@ const Persons = ({ newFilter, persons, setPersons, setErrorMessage }) => {
         setTimeout(() => {
           setErrorMessage(null)
         }, 5000)
+      }).catch(error => {
+        setErrorMessage(
+          `Removing ${name} failed with error message: ${error}`
+        )
+        setTimeout(() => {
+          setErrorMessage(null)
+        }, 5000)
       })
 
       const filteredPersons = persons.filter(e => {
@@ -126,6 +133,13 @@ const App = () => {
               setTimeout(() => {
                 setErrorMessage(null)
               }, 5000)
+            }).catch(error => {
+              setErrorMessage(
+                `Modifying ${updatedObject.name} failed with error message: ${error}`
+              )
+              setTimeout(() => {
+                setErrorMessage(null)
+              }, 5000)
             })
             setPersons(persons)
           }
@@ -137,6 +151,13 @@ const App = () => {
       personService.create(personObject).then(response => {
         setErrorMessage(
           `Added ${personObject.name}`
+        )
+        setTimeout(() => {
+          setErrorMessage(null)
+        }, 5000)
+      }).catch(error => {
+        setErrorMessage(
+          `Adding ${personObject.name} failed with error message: ${error}`
         )
         setTimeout(() => {
           setErrorMessage(null)
